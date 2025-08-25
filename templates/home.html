@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Gradient Background -->
+<div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+  
+  <!-- Navigation Header -->
+  <nav class="backdrop-blur-md bg-white/70 sticky top-0 z-50 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <!-- Logo/Brand -->
+          <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold text-xl">🌱</span>
+          </div>
+          <span class="text-xl font-semibold text-gray-800">Digital Garden</span>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-gray-600 hover:text-indigo-600 transition-colors">Home</a>
+          <a href="/posts" class="text-gray-600 hover:text-indigo-600 transition-colors">Posts</a>
+          <a href="/garden" class="text-gray-600 hover:text-indigo-600 transition-colors">Garden</a>
+          <a href="/about" class="text-gray-600 hover:text-indigo-600 transition-colors">About</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Content -->
+  <header class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center">
+      <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+        Welcome to My Digital Garden
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        A space where ideas grow, thoughts bloom, and knowledge is cultivated. 
+        Explore my collection of notes, writings, and creative experiments.
+      </p>
+      <div class="flex gap-4 justify-center">
+        <a href="/posts" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+          Explore Posts
+        </a>
+        <a href="/about" class="px-8 py-3 bg-white text-gray-800 rounded-full font-medium border border-gray-200 hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Content Grid -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">Recently Planted</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Post Card 1 -->
+      <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+        <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-600"></div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Technology</span>
+            <span>5 min read</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors mb-2">
+            Building a Personal Knowledge System
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Exploring tools and techniques for organizing thoughts and creating connections between ideas.
+          </p>
+          <a href="#" class="text-indigo-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+            Read more 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Post Card 2 -->
+      <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+        <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-600"></div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Thoughts</span>
+            <span>3 min read</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors mb-2">
+            The Art of Digital Gardening
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Why I chose to build a digital garden instead of a traditional blog.
+          </p>
+          <a href="#" class="text-indigo-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+            Read more 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Post Card 3 -->
+      <article class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+        <div class="h-48 bg-gradient-to-br from-green-400 to-teal-600"></div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Learning</span>
+            <span>7 min read</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors mb-2">
+            Rust and Web Development
+          </h3>
+          <p class="text-gray-600 mb-4">
+            My journey building web applications with Rust and Axum framework.
+          </p>
+          <a href="#" class="text-indigo-600 font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+            Read more 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-12 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Stay Connected</h2>
+      <p class="text-indigo-100 mb-8 max-w-2xl mx-auto">
+        Get notified when new seeds are planted in the garden. No spam, just thoughtful content.
+      </p>
+      <div class="flex gap-3 max-w-md mx-auto">
+        <input type="email" 
+               placeholder="Enter your email" 
+               class="flex-1 px-6 py-3 rounded-full text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-white/30">
+        <button class="px-8 py-3 bg-white text-indigo-600 rounded-full font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-100 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+          <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold">🌱</span>
+          </div>
+          <span class="text-gray-600">© 2024 Digital Garden</span>
+        </div>
+        
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-400 hover:text-indigo-600 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-indigo-600 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-indigo-600 transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.25 6h-1.938c-.21-.726-.512-1.41-.894-2.027A8.024 8.024 0 0116.25 8zM12 4.027c.522.643.947 1.398 1.25 2.223h-2.5c.303-.825.728-1.58 1.25-2.223zM4.246 14a7.962 7.962 0 010-4h2.082a16.327 16.327 0 000 4H4.246zm.754 2h1.75a9.933 9.933 0 001.595 3.027A8.024 8.024 0 015 16zm1.75-8H5a8.024 8.024 0 013.345-3.027A9.933 9.933 0 006.75 8zm5.25 11.973c-.522-.643-.947-1.398-1.25-2.223h2.5c-.303.825-.728 1.58-1.25 2.223zM14.5 14h-5a14.327 14.327 0 010-4h5a14.327 14.327 0 010 4zm.105 5.027c.382-.617.684-1.301.895-2.027h1.938a8.024 8.024 0 01-2.833 2.027zM17.672 14a16.327 16.327 0 000-4h2.082a7.962 7.962 0 010 4h-2.082z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+{% endblock %}

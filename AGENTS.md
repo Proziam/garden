@@ -1,4 +1,4 @@
-# Agent Instructions for Blog Project
+# Agent Instructions for Digital Garden Project
 
 ## Build Commands
 - **Build Rust**: `cargo build` - Compile the Rust application
