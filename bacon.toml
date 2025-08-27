@@ -1,12 +1,86 @@
-# This is a configuration file for the bacon tool
-# Bacon repository: https://github.com/Canop/bacon
-# Complete help on configuration: https://dystroy.org/bacon/config/
-# You can also check bacon's own bacon.toml file
-#  as an example: https://github.com/Canop/bacon/blob/main/bacon.toml
-
+# This bacon.toml makes 'bacon' run your server by default and restart on any file change
 default_job = "run"
 
+# Set colors for better visibility
+[export]
+enabled = true
+path = ".bacon-locations"
+line_format = "{kind} {path}:{line}:{column} {message}"
+
+# Environment settings
+[export.env]
+CARGO_TERM_COLOR = "always"
+
+# Main server job - this runs when you just type 'bacon'
 [jobs.run]
-command = ["cargo", "run"]
+command = [
+    "sh", "-c",
+    "echo '🔄 Starting server...' && cargo run --color=always && echo '✅ Server stopped'"
+]
+need_stdout = true              # Show all server output
+allow_warnings = true            # Don't stop on warnings
+background = false               # Don't wait for completion (servers run forever)
+on_change_strategy = "kill_then_restart"  # Kill old process before starting new one
+watch = [
+    "src",                       # Watch source files
+    "Cargo.toml",               # Watch for dependency changes
+    "Cargo.lock",               # Watch for lock file changes
+    "templates",                # Add any template directories you use
+    "static",                   # Add static file directories if needed
+    ".env",                     # Watch environment file changes
+]
+
+# Alternative job with more verbose notifications
+[jobs.run-verbose]
+command = [
+    "sh", "-c",
+    "echo '🚀 =============================' && echo '🚀 RESTARTING SERVER' && echo '🚀 Time: '$(date +%H:%M:%S) && echo '🚀 =============================' && cargo run --color=always"
+]
 need_stdout = true
-watch = ["src", "templates", "Cargo.toml"]
+allow_warnings = true
+background = false
+on_change_strategy = "kill_then_restart"
+
+# Quick check job (press 'c' to switch to this)
+[jobs.check]
+command = ["cargo", "check", "--color", "always"]
+need_stdout = false
+
+# Test job (press 't' to switch to this)
+[jobs.test]
+command = ["cargo", "test", "--color", "always"]
+need_stdout = true
+
+# Clippy job (press 'l' to switch to this)
+[jobs.clippy]
+command = ["cargo", "clippy", "--all-targets", "--color", "always"]
+need_stdout = false
+
+# Release build run
+[jobs.run-release]
+command = [
+    "sh", "-c",
+    "echo '🏁 Starting server in RELEASE mode...' && cargo run --release --color=always"
+]
+need_stdout = true
+allow_warnings = true
+background = false
+on_change_strategy = "kill_then_restart"
+
+# Custom keybindings for quick job switching
+[keybindings]
+# Jobs
+r = "job:run"
+v = "job:run-verbose"
+c = "job:check"
+t = "job:test"
+l = "job:clippy"
+R = "job:run-release"
+# Navigation
+g = "scroll-to-top"
+G = "scroll-to-bottom"
+q = "quit"
+# Display toggles
+w = "toggle-wrap"
+s = "toggle-summary"
+b = "toggle-backtrace"
