@@ -28,6 +28,7 @@
 - Keep main application logic in `src/main.rs`
 - Use standard Rust module structure for larger features
 - Separate concerns: handlers, models, templates
+- When working with tailwind, use the components inside the `spotlight-ts` wherever possible
 
 ### Dependencies
 - Axum for web framework
