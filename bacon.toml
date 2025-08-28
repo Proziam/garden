@@ -15,7 +15,7 @@ CARGO_TERM_COLOR = "always"
 [jobs.run]
 command = [
     "sh", "-c",
-    "echo '🔄 Starting server...' && cargo run --color=always && echo '✅ Server stopped'"
+    "trap 'echo \"⏹ Stopping server...\"; pkill -P $$ 2>/dev/null; sleep 0.5' EXIT; echo '🔄 Starting server...' && exec cargo run --color=always"
 ]
 need_stdout = true              # Show all server output
 allow_warnings = true            # Don't stop on warnings
@@ -34,7 +34,7 @@ watch = [
 [jobs.run-verbose]
 command = [
     "sh", "-c",
-    "echo '🚀 =============================' && echo '🚀 RESTARTING SERVER' && echo '🚀 Time: '$(date +%H:%M:%S) && echo '🚀 =============================' && cargo run --color=always"
+    "trap 'echo \"⏹ Stopping server...\"; pkill -P $$ 2>/dev/null; sleep 0.5' EXIT; echo '🚀 =============================' && echo '🚀 RESTARTING SERVER' && echo '🚀 Time: '$(date +%H:%M:%S) && echo '🚀 =============================' && exec cargo run --color=always"
 ]
 need_stdout = true
 allow_warnings = true
@@ -60,7 +60,7 @@ need_stdout = false
 [jobs.run-release]
 command = [
     "sh", "-c",
-    "echo '🏁 Starting server in RELEASE mode...' && cargo run --release --color=always"
+    "trap 'echo \"⏹ Stopping server...\"; pkill -P $$ 2>/dev/null; sleep 0.5' EXIT; echo '🏁 Starting server in RELEASE mode...' && exec cargo run --release --color=always"
 ]
 need_stdout = true
 allow_warnings = true
